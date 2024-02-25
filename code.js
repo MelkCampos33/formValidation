@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', ()=> {
 
     const form = document.getElementById('mainForm')
@@ -20,19 +21,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // validação dos campos
 
     name.addEventListener('input', () => {
-        validadeFiel(name, name.value.trim() !== '', 'Name cannot be blank')
+        validadeField(name, name.value.trim() !== '', 'Name cannot be blank')
     })
 
     email.addEventListener('input', () => {
-        validadeFiel(email, isEmail(email.value.trim()), 'Not a valid email')
+        validadeField(email, isEmail(email.value.trim()), 'Not a valid email')
     })
 
     phone.addEventListener('input', () => {
-        validadeFiel(phone, isPhone(phone.value.trim()), 'Not a valid phone number')
+        validadeField(phone, isPhone(phone.value.trim()), 'Not a valid phone number')
     })
 
     password.addEventListener('input', () => {
-        validadeFiel(password, password.value.trim().length >= 8, 'Password must be at least 8 characters')
+        validadeField(password, password.value.trim().length >= 8, 'Password must be at least 8 characters')
     })
 
 
@@ -40,11 +41,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
         let isValid = true
 
-        validateField(name, name.value.trim() !== '', 'Name cannot be blank');
-        validateField(email, isEmail(email.value.trim()), 'Not a valid email');
-        validateField(phone, isPhone(phone.value.trim()), 'Not a valid phone number');
-        validateField(password, password.value.trim().length >= 8, 'Password must be at least 8 characters');
-        validateField(message, message.value.trim() !== '', 'Message cannot be blank');
+        validadeField(name, name.value.trim() !== '', 'Name cannot be blank');
+        validadeField(email, isEmail(email.value.trim()), 'Not a valid email');
+        validadeField(phone, isPhone(phone.value.trim()), 'Not a valid phone number');
+        validadeField(password, password.value.trim().length >= 8, 'Password must be at least 8 characters');
+        validadeField(message, message.value.trim() !== '', 'Message cannot be blank');
 
         document.querySelectorAll('.form-control').forEach((control) => {
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         return isValid
     }
 
-    function validateField(input, condition, errorMessage) {
+    function validadeField(input, condition, errorMessage) {
 
         if (condition){
             setSuccess(input)
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         
         const formControl = input.parentElement
         const icon = formControl.querySelector('.icon')
-        formControl.className = 'form.control sucess'
+        formControl.className = 'form-control success'
         icon.className = 'icon fas fa-check-circle'
     }
 
